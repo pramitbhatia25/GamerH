@@ -1,69 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
-
-
-.loginForm body {
-	background-image: url("https://wallpaper.dog/large/20372204.jpg");
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	font-family: 'Montserrat', sans-serif;
-}
-
-.loginForm h1 {
-	font-weight: bold;
-	margin: 0;
-}
-
-.loginForm h2 {
-	text-align: center;
-}
-
-.loginForm p {
-	font-size: 20px;
-	font-weight: bold;
-	letter-spacing: 1px;
-	margin: 20px 0 30px;
-	color: black;
-}
-
-.loginForm span {
-	font-size: 12px;
-}
-
-.loginForm button {
-	border-radius: 20px;
-	border: 1px solid blue;
-	background-color: blue;
-	color: #FFFFFF;
-	font-size: 12px;
-	font-weight: bold;
-	padding: 12px 45px;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	transition: transform 80ms ease-in;
-}
-
-.loginForm button:hover {
-    background-color: rgba(0,0,225,.5);
-	transform: scale(0.95);
-}
-
-.loginForm button:active {
-	transform: translateY(10px);
-}
-
-.loginForm button:focus {
-	outline: none;
-}
-
-.loginForm button.ghost {
-	background-color: transparent;
-	border-color: #FFFFFF;
-}
-
 .loginForm form {
     padding-top: 100px;
+    padding-bottom: 100px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -88,13 +25,4 @@
 	width: 500px;
 	max-width: 100%;
 	min-height: 480px;
-}
-
-.loginForm h1 {
-	color: navy
-}
-
-.loginForm h5 {
-	color: black;
-	font-weight: bold;
 }

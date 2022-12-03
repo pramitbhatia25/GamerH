@@ -86,11 +86,12 @@
   }
   
   .map-wrap {
-    background: rgba(8, 253, 216, 0.1);
+    background: transparent;
     float: right;
-    width: 53%;
-    height: 115%;
-    margin-top: -3%;
+    width: 50%;
+    margin-right: 20px;
+    height: 90%;
+    margin-top: 3%;
   }
   
   .leaflet-container {
@@ -105,7 +106,7 @@
   .info-map {
     position: absolute;
     background: #000;
-    top: 50px;
+    top: 150px;
     right: 30%;
     z-index: 999999;
     width: 267px;

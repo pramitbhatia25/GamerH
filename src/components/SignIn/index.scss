@@ -1,13 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+@import '@fontsource/bungee-shade';
 
-
-.loginForm body {
-	background-image: url("https://wallpaper.dog/large/20372204.jpg");
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	font-family: 'Montserrat', sans-serif;
+.loginForm {
+	margin-top: 5%;
+	height: fit-content;
+	justify-content: center;	
 }
 
 .loginForm h1 {
@@ -17,18 +13,6 @@
 
 .loginForm h2 {
 	text-align: center;
-}
-
-.loginForm p {
-	font-size: 20px;
-	font-weight: bold;
-	letter-spacing: 1px;
-	margin: 20px 0 30px;
-	color: black;
-}
-
-.loginForm span {
-	font-size: 12px;
 }
 
 .loginForm button {
@@ -63,38 +47,29 @@
 }
 
 .loginForm form {
-    padding-top: 100px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	height: 100%;
-	text-align: center;
 }
 
 .loginForm input {
-	background-color: #eee;
-	border: none;
+	background-color: blue;
+	border: 1px solid black;
 	padding: 12px 15px;
 	margin: 8px 0;
-}
-
-.loginForm .container {
-	background-color: #fff;
-	border-radius: 10px;
-  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
-			0 10px 10px rgba(0,0,0,0.22);
-	position: relative;
-	width: 500px;
-	max-width: 100%;
-	min-height: 480px;
+	font-size: 15px;
 }
 
 .loginForm h1 {
+	font-family: "Bungee Shade";
+	font-size: 48px;
 	color: navy
 }
 
 .loginForm h5 {
 	color: black;
 	font-weight: bold;
+	margin-top: 0px;
+	font-size: 20px;
 }

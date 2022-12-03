@@ -1,5 +1,5 @@
 .nav-bar {
-    background: #181818;
+    background: transparent;
     width: 100%;
     height: 100px;
     position: absolute;
@@ -8,7 +8,9 @@
 
     .logo {
         padding: 8px 0;
-        margin-left: 50px;
+        margin-left:20px;
+        padding-bottom: 20px;
+        // position:absolute;
         text-decoration: none;
 
         h4 {
@@ -95,6 +97,21 @@
         a.login-link {
             &:after {
                 content: 'LOGIN';
+            }
+        }
+        a.leaderboard-link {
+            &:after {
+                content: 'LEADERBOARD';
+            }
+        }
+        a.friends-link {
+            &:after {
+                content: 'FRIENDS';
+            }
+        }
+        a.signout-link {
+            &:after {
+                content: 'LOGOUT';
             }
         }
 

@@ -1,7 +1,13 @@
 import './index.scss';
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const SignIn = () => {
+
+
+    useEffect(() => {
+        document.body.style.zoom = "80%";
+    }, [])
+
 
     const [user, setUser] = useState({
         pass: "", email: "",
@@ -34,38 +40,24 @@ const SignIn = () => {
         if (res.status === 400 || !data) {
             window.alert("Invalid Credentials!");
             console.log("Invalid Credentials!");
-            window.location.href = "/login"
+            window.location.href = "/signIn"
 
         } else {
             window.alert("Login Successful");
             console.log("Login Successful");
             localStorage.setItem("email", email);
-            if(data.userType === "admin") {
-                window.location.href = "/adminDashboard"
-            }
-            else {
-                window.location.href = "/progress"
-            }
+            window.location.href = "/dashboard"
         }
 
     }
 
     return (
         <div className="loginForm">
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-    <br />
             <div className="container" id="container">
                 <div className="form-container sign-in-container">
                     <form action="#">
                         <h1>Sign in</h1>
-                        <span>Welcome back, Gamer!</span>
+                        <h5>Welcome back, Gamer!</h5>
                         <input type="email" placeholder="Email" onChange={Input} id="email" value={user.email} name="email" />
                         <input type="password" placeholder="Password" onChange={Input} id="pass" value={user.pass} name="pass" />
                         <br />

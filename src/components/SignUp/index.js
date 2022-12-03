@@ -1,69 +1,88 @@
 import './index.scss';
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const SignUp = () => {
 
+    useEffect(() => {
+        document.body.style.zoom = "80%";
+    }, [])
+
+    // function logOut() {
+    //     localStorage.removeItem("email");
+    //     window.location.assign("/login");
+    // }
+    // const [data, setData] = useState();
+
+    // useEffect(() => {
+    //     getData();
+    // }, [])
+
+    // async function getData() {
+    //     const email = localStorage.getItem("email");
+    //     console.log(email);
+    //     if (!email) {
+    //         alert("Please Login first!");
+    //         window.location.assign("/home");
+    //     }
+        // const response = await fetch('http://localhost:1337/api/find', {
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     method: 'POST',
+        //     body: JSON.stringify({
+        //         email,
+        //     }),
+        // })
+
+        // setData(await response.json());
+        // console.log("Data->" + data);
+    // }
+
     const [user, setUser] = useState({
-        pass: "", email: "",
+        pass: "", email: "", name:""
     });
 
     let name, value;
     const Input = (e) => {
+        console.log(e)
         name = e.target.name;
         value = e.target.value;
-
+        console.log(value)
+        
         setUser({ ...user, [name]: value });
     }
 
-    const SendDataLogin = async (e) => {
+    async function SendDataSignUp(e) {
         e.preventDefault();
-
-        const { email, pass } = user;
-        const res = await fetch("http://localhost:1337/api/login", {
-            method: "POST", headers: { "Content-Type": "application/json" },
+        console.log(user)
+        let name = user.name;
+        let email = user.email;
+        let pass = user.pass;        
+        const response = await fetch('http://localhost:1337/api/createUser', {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            method: 'POST',
             body: JSON.stringify({
-                email, pass
-            })
-        });
-
-        const data = await res.json();
-        console.log(data)
-
-        if (res.status === 400 || !data) {
-            window.alert("Invalid Credentials!");
-            console.log("Invalid Credentials!");
-            window.location.href = "/signIn"
-
-        } else {
-            window.alert("Login Successful");
-            console.log("Login Successful");
-            localStorage.setItem("email", email);
-            window.location.href = "/progress"
-        }
+                name, email, pass
+            }),
+        })
+        console.log("S"+ await response.json());
 
     }
 
     return (
         <div className="loginForm">
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-    <br />
             <div className="container" id="container">
                 <div className="form-container sign-up-container">
                     <form action="#">
                         <h1>Sign Up</h1>
-                        <span>Welcome to GamerH!</span>
+                        <h5>Welcome to GamerH!</h5>
                         <input type="name" placeholder="Name" onChange={Input} id="name" value={user.name} name="name" />
                         <input type="email" placeholder="Email" onChange={Input} id="email" value={user.email} name="email" />
                         <input type="password" placeholder="Password" onChange={Input} id="pass" value={user.pass} name="pass" />
                         <br />
-                        <button onClick={SendDataLogin} className="btn">Sign Up</button>
+                        <button onClick={SendDataSignUp} className="btn">Sign Up</button>
                     </form>
                 </div>
             </div>

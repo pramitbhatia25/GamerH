@@ -38,7 +38,7 @@ Particle {
     color: white;
     font-family: 'Bungee Shade';
     font-weight: 400;
-    font-size: 60px;
+    font-size: 90px;
     width: 32px;
     margin-left: 30px;
     height: auto;
@@ -49,9 +49,10 @@ Particle {
 
   h1 {
     color: white;
-    font-size: 53px;
+    font-size:80px;
     margin: 0;
     font-family: 'Coolvetica';
+    font-family: 'Retro';
     font-weight: 400;
 
     &:before {
@@ -82,8 +83,7 @@ Particle {
   .typing {
     color: white;
     margin-top: 20px;
-    font-weight: 600;
-    font-size: 18px;
+    font-size: 24px;
     font-family: sans-serif;
     letter-spacing: 3px;
     animation: fadeIn 1s 1s backwards;
@@ -314,6 +314,7 @@ Particle {
     float: none;
     display: block;
     margin: 20px auto 0 auto;
+
     width: 124px;
     background-color: rgba(0, 0, 0, 0.8);
   }

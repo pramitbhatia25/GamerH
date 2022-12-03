@@ -46,13 +46,14 @@ function Home() {
             <br />
             <br />
             <br />
+            {/*
             <div className="typing"><ReactTypingEffect typingDelay="1000" eraseDelay="1000" eraseSpeed="10" speed="50"
                 text={["Software Developer.", "Undergrad @ Georgia State University", "Huge Marvel Fan!", "Aspring Software Engineer :)"]}
             /></div>
-
+            */}
+            <div className="typing">Game Like Never Before!</div>
             <Link to="//linkedin.com/in/pramit-bhatia-220680b2/" target="_blank" className="flat-button">Linkedin <FontAwesomeIcon className="ic" icon={faLinkedin} color="white" fontSize={"20px"} /></Link>
             <Link to="//github.com/pramitbhatia25" target="_blank" className="flat-button">Github <FontAwesomeIcon className="ic" icon={faGithub} color="white" fontSize={"20px"} /></Link>
-            <Link to="/Portfolio/contact" className="flat-button cont">Contact Me! <FontAwesomeIcon className="ic" icon={faContactCard} color="white" fontSize={"20px"} /></Link>
         </div>
         
     </div>
