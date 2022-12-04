@@ -6,7 +6,9 @@ import Contact from './components/Contact';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import LeaderBoard from './components/LeaderBoard';
-import DashBoard from './components/Dashboard/a';
+import DashBoard from './components/Dashboard';
+import UserLeaderBoard from './components/UserLeaderBoard';
+import Chat from './components/Chat';
 
 function App() {
   return (
@@ -22,7 +24,8 @@ function App() {
         <Route path="world/leaderboard" element= {<LeaderBoard/>} />
       </Route>
     <Route path="/user/dashboard" element= {<DashBoard/>} />
-    <Route path="/user/friends" element= {<DashBoard/>} />
+    <Route path="/user/chat" element= {<Chat/>} />
+    <Route path="/user/leaderboard" element= {<UserLeaderBoard/>} />
     </Routes>
   </div>
   );

@@ -5,6 +5,12 @@ const userSchema = new mongoose.Schema({
     name:{
         type:String, required:true
     }, 
+    handle:{
+        type:String, required:true
+    }, 
+    steps:{
+        type:Number, required:true
+    }, 
     email:{
         type:String, required:true, unique: true
     },  

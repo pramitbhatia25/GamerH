@@ -9,7 +9,7 @@ const SideBar = () => {
 
     return <div className="nav-bar">
         <Link onClick={() => setShowNav(false)} className="logo" to="/home" >
-            <h4>P</h4>
+            <h4>G</h4>
         </Link>
 
 

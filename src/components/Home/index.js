@@ -10,7 +10,8 @@ import {faContactCard} from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
     const [letterClass, setLetterClass] = useState('text-animate');
-    const nameArray = ['r', 'a', 'm', 'i', 't'];
+    // const nameArray = ['r', 'a', 'm', 'i', 't'];
+    const nameArray = "Welcome To GamerH".split("");
     const [a, setA] = useState("Loading!");
 
 
@@ -34,20 +35,26 @@ function Home() {
         <div className="text-zone">
             <h1>
                 <span className={letterClass}>H</span>
-                <span className={`${letterClass} _12`}>i,</span>
+                <span className={`${letterClass} _12`}>e</span>
+                <span className={`${letterClass} _13`}>y</span>
+                <span className={`${letterClass} _14`}> </span>
+                <span className={`${letterClass} _15`}>t</span>
+                <span className={`${letterClass} _16`}>h</span>
+                <span className={`${letterClass} _17`}>e</span>
+                <span className={`${letterClass} _18`}>r</span>
+                <span className={`${letterClass} _19`}>e,</span>
                 <br />
-                <span className={`${letterClass} _13`}>I</span>
-                <span className={`${letterClass} _14`}>'m</span>
-                <div className="hh4">P</div>
-                <AnimatedLetters letterClass={letterClass} strArray={nameArray} idx={15} />
-                <span className={`${letterClass} _15`}>!</span>
+                <div className="hh4">GAMER!</div>
                 <br />
             </h1>
             <br />
             <br />
             <br />
             {/*
-            <div className="typing"><ReactTypingEffect typingDelay="1000" eraseDelay="1000" eraseSpeed="10" speed="50"
+                <AnimatedLetters letterClass={letterClass} strArray={nameArray} idx={19} />
+                <span className={`${letterClass} _19`}>!</span>
+
+                <div className="typing"><ReactTypingEffect typingDelay="1000" eraseDelay="1000" eraseSpeed="10" speed="50"
                 text={["Software Developer.", "Undergrad @ Georgia State University", "Huge Marvel Fan!", "Aspring Software Engineer :)"]}
             /></div>
             */}

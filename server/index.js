@@ -13,6 +13,8 @@ app.post('/api/createUser', async (req, res) => {
 	try {
 		await User.create({
 			name: req.body.name,
+			handle: req.body.handle,
+			steps: req.body.steps,
 			email: req.body.email,
 			pass: req.body.pass,
 		})
@@ -24,41 +26,52 @@ app.post('/api/createUser', async (req, res) => {
 	}
 })
 
-// app.post('/api/find', async (req, res) => {
-//         const email = req.body.email;
-//         try {
-//         const userLogin = await User.findOne({email:email});
-//         res.json({status: "ok", user: userLogin});       
-//         } catch(err) {
-//             res.json({status:"error", error: err})
-//     }
-// });
+app.get('/api/fetchUsers', async (req, res) => {
+    try {
+        const users = await User.find();
+		res.json({ status: 'ok', users:users})
+    }
+    catch(err)
+    {
+		res.json({ status: 'error', error: err })
+    }
+})
 
-// app.post('/api/login', async (req, res) => {
-//     try{
-//         const {email, pass} = req.body;
+app.post('/api/find', async (req, res) => {
+        const email = req.body.email;
+        try {
+        const userLogin = await User.findOne({email:email});
+        res.json({status: "ok", user: userLogin});       
+        } catch(err) {
+            res.json({status:"error", error: err})
+    }
+});
 
-//         if(!email || !pass){
-//             res.status(400).json({error:"field incomplete"});
-//         }
+app.post('/api/login', async (req, res) => {
+    try{
+        const {email, pass} = req.body;
 
-//         const userLogin = await User.findOne({email:email});
+        if(!email || !pass){
+            res.status(400).json({error:"field incomplete"});
+        }
 
-//         if(userLogin){
-//         const isMatch = pass == userLogin.pass;
-//         if(!isMatch){
-//             res.status(400).json({error:"user login unsuccesful"});
-//         }else{
-//             res.json({message:"user login succesful", userType: userLogin.userType});
-//         }}else{
-//             res.status(400).json({error:"user login unsuccesful"});
-//         }
+        const userLogin = await User.findOne({email:email});
+
+        if(userLogin){
+        const isMatch = pass === userLogin.pass;
+        if(!isMatch){
+            res.status(400).json({error:"user login unsuccesful"});
+        }else{
+            res.json({message:"user login succesful", userType: userLogin.userType});
+        }}else{
+            res.status(400).json({error:"user login unsuccesful"});
+        }
         
 
-//     }catch (err) {
-//         console.log(err);
-//     }
-// });
+    }catch (err) {
+        console.log(err);
+    }
+});
 
 app.listen(1337, () => {
 	console.log('Server started on 1337')

@@ -7,68 +7,46 @@ const SignUp = () => {
         document.body.style.zoom = "80%";
     }, [])
 
-    // function logOut() {
-    //     localStorage.removeItem("email");
-    //     window.location.assign("/login");
-    // }
-    // const [data, setData] = useState();
-
-    // useEffect(() => {
-    //     getData();
-    // }, [])
-
-    // async function getData() {
-    //     const email = localStorage.getItem("email");
-    //     console.log(email);
-    //     if (!email) {
-    //         alert("Please Login first!");
-    //         window.location.assign("/home");
-    //     }
-        // const response = await fetch('http://localhost:1337/api/find', {
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     method: 'POST',
-        //     body: JSON.stringify({
-        //         email,
-        //     }),
-        // })
-
-        // setData(await response.json());
-        // console.log("Data->" + data);
-    // }
-
     const [user, setUser] = useState({
-        pass: "", email: "", name:""
+        pass: "", email: "", name:"", handle: "", steps: ""
     });
 
     let name, value;
     const Input = (e) => {
-        console.log(e)
         name = e.target.name;
-        value = e.target.value;
-        console.log(value)
-        
+        value = e.target.value;        
         setUser({ ...user, [name]: value });
     }
 
     async function SendDataSignUp(e) {
         e.preventDefault();
-        console.log(user)
+        console.log("Y" +user)
         let name = user.name;
         let email = user.email;
-        let pass = user.pass;        
+        let pass = user.pass;
+        let handle = "@" + user.handle;
+        let steps = 0;        
+        console.log(user)
         const response = await fetch('http://localhost:1337/api/createUser', {
             headers: {
                 'Content-Type': 'application/json',
             },
             method: 'POST',
             body: JSON.stringify({
-                name, email, pass
+                name, handle, steps, email, pass
             }),
         })
-        console.log("S"+ await response.json());
-
+        console.log(response.status)
+        if(response.status === 200) {
+        console.log("S"+ response.toString());
+        window.alert('Account Created!');
+        localStorage.setItem("email", email);
+        window.location.href = "/user/dashboard"
+        }
+        else {
+        window.alert("Error!" + response.error)
+        window.location.href = '/signUp';
+        }
     }
 
     return (
@@ -79,6 +57,7 @@ const SignUp = () => {
                         <h1>Sign Up</h1>
                         <h5>Welcome to GamerH!</h5>
                         <input type="name" placeholder="Name" onChange={Input} id="name" value={user.name} name="name" />
+                        <input type="handle" placeholder="@Handle" onChange={Input} id="handle" value={user.handle} name="handle" />
                         <input type="email" placeholder="Email" onChange={Input} id="email" value={user.email} name="email" />
                         <input type="password" placeholder="Password" onChange={Input} id="pass" value={user.pass} name="pass" />
                         <br />

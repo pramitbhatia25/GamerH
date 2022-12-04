@@ -1,0 +1,150 @@
+.step_count {
+    position: absolute;
+    top: 200px;
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 50%;
+    margin-left: 10%;
+    height: 200px;
+}
+
+.welcome_box {
+    position: absolute;
+    top: 100px;
+    left: 10%;
+    margin: auto;
+    border-radius: 10px;
+    width: 50%;
+    height: 200px;
+    font-size: 40px;
+	font-family: "Bungee Shade";
+    color: white;
+}
+
+.dash {
+    width: 100%;
+    position: absolute;
+}
+
+.steps_title {
+    margin-top: 20px;
+    font-size: 40px;
+	font-family: "Bungee Shade";
+    color: white;
+    margin-left: 5%;
+}
+
+.steps_amount {
+    margin-top: 20px;
+    font-size: 50px;
+	font-family: "Bungee Shade";
+    color: white;
+    text-align: center;
+}
+
+.amt {
+    animation: blinker 1s linear infinite;
+    @keyframes blinker {
+        50% {
+          opacity: 0;
+        }
+      }
+
+}
+
+.connect_button {    
+    position: absolute;
+    top: 200px;
+    width: 30%;
+    right: 7%;
+    height: 200px;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: transparent;
+    font-size: 30px;
+	font-family: "Coolvetica";
+    color: white;
+    text-align: center;
+}
+
+.connect_button:hover {
+    cursor:pointer;
+    background-color: rgba(255, 255, 255);
+    color: black;
+    -webkit-transition: background-color 0ms linear;
+    -ms-transition: background-color 0ms linear;
+    transition: background-color 0ms linear;
+}
+
+.enter_manually {    
+    position: absolute;
+    top: 450px;
+    width: 30%;
+    left: 10%;
+    height: 200px;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: transparent;
+    font-size: 30px;
+	font-family: "Coolvetica";
+    color: white;
+    text-align: center;
+}
+
+.enter_manually:hover {
+    cursor:pointer;
+    background-color: rgba(255, 255, 255);
+    color: black;
+    -webkit-transition: background-color 0ms linear;
+    -ms-transition: background-color 0ms linear;
+    transition: background-color 0ms linear;
+}
+
+.ocr_box {
+    position: absolute;
+    top: 450px;
+    width: 50%;
+    right: 7%;
+    height: 200px;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: transparent;
+    font-size: 30px;
+	font-family: "Coolvetica";
+    color: white;
+    text-align: center;
+}
+
+.ocr_box:hover {
+    color: black;
+    background-color: white;
+
+    .ocr_title {
+        color: black;
+        background-color: white;
+        border: 1px solid black;
+    }
+}
+
+.ocr_title {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 20px;
+    border: 1px solid white;
+    background-color: transparent;
+    font-size: 30px;
+	font-family: "Coolvetica";
+    color: white;
+    text-align: center;    
+}
+
+.ocr_title:hover {
+    scale: 0.95;
+    cursor: pointer;
+}
+
+.ocr_download_image {
+
+}
