@@ -23,6 +23,7 @@
     "react-loaders": "^3.0.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-simple-chatbot": "^0.6.1",
     "react-tsparticles": "^2.3.3",
     "react-typing-effect": "^2.0.5",
     "sass": "^1.54.9",

@@ -1,0 +1,32 @@
+.chatbot {
+    position: absolute;
+    text-align: center;
+    height:auto;
+    top: 100px;
+    left: 40%;
+    overflow: hidden;
+    ::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.openai_text {
+    position: absolute;
+    margin-top: 100px;
+    font-size: 40px;
+	font-family: "Bungee Shade";
+    color: white;
+    left: 10%;
+    width: 20%;
+
+}
+
+.openai_text_2 {
+    position: absolute;
+    margin-top: 100px;
+    font-size: 40px;
+	font-family: "Bungee Shade";
+    color: white;
+    right: 10%;
+    width: 20%;
+}
