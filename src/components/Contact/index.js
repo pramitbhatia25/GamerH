@@ -31,7 +31,7 @@ const Contact = () => {
             .then(
                 () => {
                     alert("Message successfully sent!");
-                    document.location.href = "https://pramitbhatia25.github.io/Portfolio/";
+                    document.location.href = "http://127.0.0.1:3000/contact";
                 },
                 () => {
                     alert("Failed to send the message, try again.");
@@ -48,7 +48,11 @@ const Contact = () => {
                         letterClass={letterClass} />
                 </h1>
                 <p>
-                Hey! If you have any opportunities or would just like to chat with me, send me a message! I promise I'll get back ASAP :)
+                Hey there, Gamer!
+                <br />
+                If you have any concerns or questions, or would just like to send in a review, email us! 
+                <br />
+                We promise we'll get back ASAP :)
                 <br />
                 </p>
                 <div className="contact-form">
@@ -74,18 +78,17 @@ const Contact = () => {
                 </div>
             </div>
             <div className="info-map">
-          Pramit Bhatia,
+            GamerH,
           <br />
-          Marsh Trail Circle<br />
-          Atlanta, Georgia<br />
+          Somewhere on Earth,
           <br />
-          <span>pramitbhatia25@gmail.com</span>
+          <span>gamerh@gmail.com</span>
         </div>
         <div className="map-wrap">
-          <MapContainer center={[33.946566, -84.364710]} zoom={13}>
+          <MapContainer center={[33.7488, -84.3877]} zoom={13}>
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-            <Marker position={[33.946566, -84.364710]}>
-              <Popup>My Location!</Popup>
+            <Marker position={[33.7488, -84.3877]}>
+              <Popup>Our Location!</Popup>
             </Marker>
           </MapContainer>
         </div>

@@ -37,6 +37,22 @@ app.get('/api/fetchUsers', async (req, res) => {
     }
 })
 
+app.put('/api/updateApprovalStatus', async (req, res) => {
+    let steps = req.body.steps;
+    let email = req.body.email;
+	try {
+		await User.updateOne(
+            {email: email},
+            {$set: {steps: steps}}
+		);
+		res.json({ status: 'ok' })
+	} catch (err) {
+		res.json({ status: 'error', error: err })
+	}
+
+    console.log("Hi!")
+})
+
 app.post('/api/find', async (req, res) => {
         const email = req.body.email;
         try {

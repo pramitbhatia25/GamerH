@@ -3,76 +3,94 @@ import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faBars, faTrophy, faUserFriends, faSignOut } from "@fortawesome/free-solid-svg-icons";
 import Particle from "../particle";
-import ChatBot from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
 import "./index.scss"
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import ChatBot, { Loading } from 'react-simple-chatbot';
+
+// async function getResponse(prompt) {
+//     const response = await fetch("http://127.0.0.1:5000/chatbot", {
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Prompt': prompt,
+//         },
+//         method: 'GET',
+//     }).then(function (response) {
+//         return response.json();
+//     }).then(function (text) {
+//         return text.status;
+//     });
+//     return (response)
+// }
+
+
+class DBPedia extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            loading: true,
+            result: '',
+            trigger: false,
+        };
+
+        this.triggetNext = this.triggetNext.bind(this);
+    }
+
+    componentWillMount() {
+        const self = this;
+        const { steps } = this.props;
+        const search = steps.search.value;
+
+        const queryUrl = `http://127.0.0.1:5000/chatbot`;
+
+        const xhr = new XMLHttpRequest();
+
+        xhr.addEventListener('readystatechange', readyStateChange);
+
+        function readyStateChange() {
+            if (this.readyState === 4) {
+                const data = JSON.parse(this.responseText);
+                self.setState({ loading: false, result: data.status });
+            }
+        }
+        xhr.open('GET', queryUrl);
+        xhr.setRequestHeader("Prompt", search)
+        xhr.send();
+    }
+
+    triggetNext() {
+        this.setState({ trigger: true }, () => {
+            this.props.triggerNextStep();
+        });
+    }
+
+    render() {
+        const { trigger, loading, result } = this.state;
+
+        return (
+            <div className="dbpedia">
+                {loading ? <Loading /> : result}
+            </div>
+        );
+    }
+}
+
+DBPedia.propTypes = {
+    steps: PropTypes.object,
+    triggerNextStep: PropTypes.func,
+};
+
+DBPedia.defaultProps = {
+    steps: undefined,
+    triggerNextStep: undefined,
+};
+
 
 function Chat() {
     const [showNav, setShowNav] = useState(false);
     const [user, setUser] = useState({ name: "Loading", handle: "Handle", steps: 0, email: "", pass: "" });
-    const [text, setText] = useState("Load");
-    const [steps, setSteps] = useState([
-        {
-            id: '0',
-            message: 'Hey Geek!',
-            trigger: '1',
-        },
-        {
-            id: '1',
-
-            // This message appears in
-            // the bot chat bubble
-            message: 'Hey!',
-            trigger: '2'
-        },
-        {
-            id: '2',
-
-            // Here we want the user
-            // to enter input
-            user: true,
-            trigger: '3',
-        },
-        {
-            id: '3',
-            message: " hi {previousValue}, how can I help you?",
-            trigger: '4',
-        },
-        {
-            id: '4',
-            message: " hi {previousValue}, how can I help you?",
-            trigger: '5',
-        },
-        {
-            id: '5',
-            message: " hi {previousValue}, how can I help you?",
-            trigger: '6',
-        },
-        {
-            id: '6',
-            message: " hi {previousValue}, how can I help you?",
-            trigger: '7',
-        },
-        {
-            id: '7',
-            message: " hi {previousValue}, how can I help you?",
-            trigger: '8',
-        },
-        {
-            id: '8',
-            message: " hi {previousValue}, how can I help you?",
-            trigger: '9',
-        },
-        {
-            id: '9',
-            message: " hi {previousValue}, how can I help you?",
-            trigger: '10',
-        },
-        {
-            id: '10',
-            message: " hi {previousValue}, how can I help you?",
-        },
-    ]);
 
     const theme = {
         background: 'transparent',
@@ -84,22 +102,6 @@ function Chat() {
         userBubbleColor: '#FF5733',
         userFontColor: 'white',
     };
-
-    async function getResponse(prompt) {
-        const response = await fetch("http://127.0.0.1:5000/chatbot", {
-            headers: {
-                'Content-Type': 'application/json',
-                'Prompt': prompt,
-            },
-            method: 'GET',
-        }).then(function (response) {
-            return response.json();
-        }).then(function (text) {
-            return text.status;
-        });
-        return (response)
-    }
-
     useEffect(() => {
         document.body.style.zoom = "80%";
         if (localStorage.getItem("email") != null) {
@@ -124,9 +126,7 @@ function Chat() {
         })
 
         const data = await response.json()
-        console.log(data);
         setUser(data.user)
-        // setText(await getResponse("You: Hi! I am " + data.user.name + ". I like to drive."));
     }
 
     async function SignOutUser(e) {
@@ -144,7 +144,26 @@ function Chat() {
             </Link>
             <ThemeProvider theme={theme}>
                 <div className="chatbot">
-                    <ChatBot steps={steps} />
+                    <ChatBot
+                        steps={[
+                            {
+                                id: '1',
+                                message: 'Hey! How can I help you today?',
+                                trigger: 'search',
+                            },
+                            {
+                                id: 'search',
+                                user: true,
+                                trigger: '3',
+                            },
+                            {
+                                id: '3',
+                                component: <DBPedia />,
+                                asMessage: true,
+                                trigger: 'search',
+                            },
+                        ]}
+                    />
                 </div>
             </ThemeProvider>
             <div className="openai_text">

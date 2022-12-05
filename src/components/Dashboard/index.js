@@ -8,20 +8,46 @@ import { useEffect } from "react";
 const DashBoard = () => {
     const [showNav, setShowNav] = useState(false);
     const [my_steps, setMySteps] = useState("Loading");
-    const [user, setUser] = useState({name:"Loading", handle: "Handle", steps: 0, email: "", pass: ""});
+    const [daily_goal, setDailyGoal] = useState(10000);
+    const [user, setUser] = useState({ name: "Loading", handle: "Handle", steps: "Loading", email: "", pass: "" });
+    var fitbit_link = "https://www.fitbit.com/oauth2/authorize?client_id=23944D&expires_in=604800&redirect_uri=http%3A%2F%2F127.0.0.1%3A3000%2Fuser%2Fdashboard&response_type=token&scope=activity+heartrate+location+nutrition+profile+settings+sleep+social+weight+oxygen_saturation+respiratory_rate+temperature&state"
 
     useEffect(() => {
+        updateSTEPS();
         document.body.style.zoom = "80%";
+    }, [])
+
+    async function updateSTEPS() {
         if (localStorage.getItem("email") != null) {
             console.log("A");
-            getUser();
+            await getUser();
             console.log("B");
         }
         else {
             window.alert("Not Logged In!");
             window.location.href = "/signIn";
         }
-    }, [])
+        if (window.location.href.length > 40) {
+            console.log("started")
+            var url = window.location.href;
+            var access_token = url.split("#")[1].split("=")[1].split("&")[0];
+            var userId = url.split("#")[1].split("=")[2].split("&")[0];
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://api.fitbit.com/1/user/' + userId + '/activities/steps/date/today/today.json');
+            xhr.setRequestHeader("Authorization", 'Bearer ' + access_token);
+            xhr.onload = async function () {
+                if (xhr.status === 200) {
+                    console.log("ANSWER" + xhr.responseText)
+                    var s = JSON.parse(xhr.responseText)['activities-steps']['0']['value']
+                    console.log("S"+s);
+                    await updateDB(s);
+                    setMySteps(s);
+                }
+            };
+            xhr.send()
+        }
+   }
 
     async function getUser() {
         let email = localStorage.getItem("email");
@@ -43,6 +69,24 @@ const DashBoard = () => {
         el.classList.remove("amt");
     }
 
+    async function updateDB(steps) {
+        let email = localStorage.getItem("email");
+        const response = await fetch('http://localhost:1337/api/updateApprovalStatus', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email, steps
+            }),
+        })
+        console.log("hola")
+        
+        const data = await response.json()
+        console.log(data)
+        // window.location.href = "/user/dashboard";
+    }
+
     async function SignOutUser(e) {
         setShowNav(false);
         e.preventDefault();
@@ -51,9 +95,6 @@ const DashBoard = () => {
         window.location.href = "/home";
     }
 
-    async function Sync() {
-        console.log("s");
-    }
     return <>
         <Particle />
         <div className="dash">
@@ -88,15 +129,31 @@ const DashBoard = () => {
                 Welcome, {user.handle}
             </div>
             <div className="step_count">
-                <div className="steps_title">
-                    My Steps:
+                <div className="temp_steps">
+                    <div className="steps_title">
+                        My Steps:
+                    </div>
+                    <div className="steps_title_2">
+                        Daily Goal:
+                    </div>
                 </div>
                 <div className="steps_amount amt">
-                    {my_steps}
+                    <div className="daily_goal">
+                        {my_steps}                
+                    </div>
+                    <div className="daily_goal">
+                        {daily_goal}
+                    </div>
                 </div>
             </div>
-            <button onClick={Sync} className="connect_button">Connect To Google Fitness</button>
-            <button className="enter_manually">Or Enter Manually</button>
+            <a href={fitbit_link}>
+                <button className="connect_button">Sync with Fitbit</button>
+            </a>
+            <div className="enter_manually">
+                <div className="t">
+                    Or Enter Manually:
+                </div>
+            </div>
             <div className="ocr_box">
                 <button className="ocr_title">
                     Upload an image of your step tracking device
@@ -104,6 +161,8 @@ const DashBoard = () => {
                 <div className="ocr_desc">
                     We use OCR to detect the number of steps from your image and upload it to your account.
                 </div>
+            </div>
+            <div className="ty">
             </div>
         </div>
     </>
