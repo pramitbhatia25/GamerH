@@ -9,6 +9,7 @@ import LeaderBoard from './components/LeaderBoard';
 import DashBoard from './components/Dashboard';
 import UserLeaderBoard from './components/UserLeaderBoard';
 import Chat from './components/Chat';
+import ChartD from './components/Chart';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
     <Route path="/user/dashboard" element= {<DashBoard/>} />
     <Route path="/user/chat" element= {<Chat/>} />
     <Route path="/user/leaderboard" element= {<UserLeaderBoard/>} />
+    <Route path="/user/chart" element= {<ChartD />} />
     </Routes>
   </div>
   );

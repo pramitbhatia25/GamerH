@@ -104,6 +104,11 @@
                 content: 'LEADERBOARD';
             }
         }
+        a.chart-link {
+            &:after {
+                content: 'HISTORY';
+            }
+        }
         a.friends-link {
             &:after {
                 content: 'CHATBOT';

@@ -6,7 +6,6 @@ app = Flask(__name__)
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
-
 @app.route("/chatbot", methods=("GET", "POST"))
 def chatbot():
     animal = request.headers["Prompt"]
@@ -17,16 +16,14 @@ def chatbot():
     )
     print(response.choices[0].text)
     return jsonify({"status": response.choices[0].text})
-    # print(animal)
-    # return jsonify({"status": "STELLAR"+animal})
 
 
 def generate_prompt(question):
     return (
-"""Brad is an AI that helps Gamers learn about fitness.
-You: Hi! I am Pramit. I like to drive.
-Brad: Hi Pramit! I am Brad. I like to help people.
-You: Hi! I am Kaartik. I like to drive.
-Brad: Hi Kaartik! I am Brad. I like to help people.
+"""Brad is an AI that helps Gamers learn about fitness. Brad can help provide information about diets, exercise routines, and any other fitness related advice.
+You: Hi! I am Pramit. Who are you?
+Brad: Hi Pramit! I'm Brad. I'm an AI-powered fitness coach.
+You: Hi! I am Kaartik.
+Brad: Hi Kaartik! I am Brad. I'm an AI-powered fitness coach.
 You: {}
 Brad:""".format(question))

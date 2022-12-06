@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faBars, faTrophy, faUserFriends, faSignOut } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faBars, faTrophy, faUserFriends, faSignOut, faChartBar } from "@fortawesome/free-solid-svg-icons";
 import Particle from "../particle";
 import { ThemeProvider } from 'styled-components';
 import "./index.scss"
@@ -179,6 +179,9 @@ function Chat() {
                 </NavLink>
                 <NavLink exact="true" activeclassname="active" className="friends-link" to="/user/chat" onClick={() => setShowNav(false)}>
                     <FontAwesomeIcon icon={faUserFriends} color="#fff" />
+                </NavLink>
+                <NavLink exact="true" activeclassname="active" className="chart-link" to="/user/chart" onClick={() => setShowNav(false)}>
+                    <FontAwesomeIcon icon={faChartBar} color="white" />
                 </NavLink>
                 <NavLink exact="true" activeclassname="active" className="signout-link" to="/home" onClick={SignOutUser}>
                     <FontAwesomeIcon icon={faSignOut} color="red" />

@@ -15,6 +15,7 @@ app.post('/api/createUser', async (req, res) => {
 			name: req.body.name,
 			handle: req.body.handle,
 			steps: req.body.steps,
+			ocr_steps: req.body.steps,
 			email: req.body.email,
 			pass: req.body.pass,
 		})
@@ -51,6 +52,22 @@ app.put('/api/updateApprovalStatus', async (req, res) => {
 	}
 
     console.log("Hi!")
+})
+
+app.put('/api/setOCRsteps', async (req, res) => {
+    let ocr_steps = req.body.ocr_steps;
+    let email = req.body.email;
+	try {
+		await User.updateOne(
+            {email: email},
+            {$set: {ocr_steps: ocr_steps}}
+		);
+		res.json({ status: 'ok' })
+	} catch (err) {
+		res.json({ status: 'error', error: err })
+	}
+    console.log(res.json)
+    console.log("HiYA!")
 })
 
 app.post('/api/find', async (req, res) => {

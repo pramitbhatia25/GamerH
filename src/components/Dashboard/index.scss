@@ -100,6 +100,7 @@
     top: 450px;
     width: 30%;
     left: 10%;
+    min-height: fit-content;
     height: 200px;
     border: 1px solid white;
     border-radius: 10px;
@@ -113,20 +114,41 @@
 .t {
     padding-top: 70px;
 }
+
+.num_input {
+    display: block;
+    text-align: center;
+    background-color: transparent;
+    border: 1px solid white;
+    width: 50%;
+    margin: auto;
+    height: 40px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-radius: 50px;
+    font-family: "Bungee Shade";
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+}
+
 .enter_manually:hover {
     background-color: rgba(255, 255, 255);
     color: black;
     -webkit-transition: background-color 0ms linear;
     -ms-transition: background-color 0ms linear;
     transition: background-color 0ms linear;
+
 }
 
 .ty {
     margin-top: 700px;
     position: relative;
     height: 10px;
-    background-color: white;
+    background-color: transparent;
 }
+
 .ocr_box {
     position: absolute;
     top: 450px;
@@ -147,6 +169,11 @@
     color: black;
     background-color: white;
 
+    .num_input {
+        background-color: black;
+        border: 1px solid black;    
+    }
+
     .ocr_title {
         color: white;
         background-color: black;
@@ -155,7 +182,7 @@
 }
 
 .ocr_title {
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 20px;
     padding-left: 20px;
     padding-right: 10px;
@@ -164,7 +191,7 @@
     border-radius: 20px;
     border: 1px solid black;
     background-color: transparent;
-    font-size: 30px;
+    font-size: 25px;
 	font-family: "Coolvetica";
     background-color: white;
     color: black;

@@ -11,6 +11,9 @@ const userSchema = new mongoose.Schema({
     steps:{
         type:Number, required:true
     }, 
+    ocr_steps:{
+        type:Number, required:true
+    }, 
     email:{
         type:String, required:true, unique: true
     },  

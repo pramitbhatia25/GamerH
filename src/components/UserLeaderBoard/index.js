@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faBars, faTrophy, faUserFriends, faSignOut } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faBars, faTrophy, faUserFriends, faSignOut, faChartBar } from "@fortawesome/free-solid-svg-icons";
 import Particle from "../particle";
 import "./index.scss";
 
@@ -20,22 +20,28 @@ function UserLeaderBoard() {
 
         const data = await res.json();
         let temp = []
-        temp.push({ handle: 'HANDLE', name: 'NAME', steps: "STEPS" });
+        console.log(data.users);
+        data.users.sort((a, b) => (a.steps > b.steps) ? -1 : 1)
+
+        temp.push({ rank: "RANK", handle: 'HANDLE', name: 'NAME', steps: "STEPS",});
         for (let i = 0; i < data.users.length; i++) {
-            temp.push({ handle: data.users[i].handle, name: data.users[i].name, steps: data.users[i].steps })
+            temp.push({ rank: i+1, handle: data.users[i].handle, name: data.users[i].name, steps: data.users[i].steps })
         }
         setListData(temp);
     }
 
     function ListItem(item) {
         return <div className="sleaderboard_list_item">
-            <div className="sitem name">
+            <div className="sitem">
+                {item.i.rank}
+            </div>
+            <div className="sitem">
                 {item.i.name}
             </div>
-            <div className="sitem handle">
+            <div className="sitem">
                 {item.i.handle}
             </div>
-            <div className="sitem steps">
+            <div className="sitem">
                 {item.i.steps}
             </div>
         </div>
@@ -97,7 +103,7 @@ return <>
         <Link onClick={() => setShowNav(false)} className="logo" to="/home" >
             <h4>G</h4>
         </Link>
-
+        
         <div className="sleaderboard_list">
             {list_data.map((d) =>
                 <ListItem key={d.handle} i={d} />
@@ -111,6 +117,9 @@ return <>
             </NavLink>
             <NavLink exact="true" activeclassname="active" className="friends-link" to="/user/chat" onClick={() => setShowNav(false)}>
                 <FontAwesomeIcon icon={faUserFriends} color="#fff" />
+            </NavLink>
+            <NavLink exact="true" activeclassname="active" className="chart-link" to="/user/chart" onClick={() => setShowNav(false)}>
+                <FontAwesomeIcon icon={faChartBar} color="white" />
             </NavLink>
             <NavLink exact="true" activeclassname="active" className="signout-link" to="/home" onClick={SignOutUser}>
                 <FontAwesomeIcon icon={faSignOut} color="red" />

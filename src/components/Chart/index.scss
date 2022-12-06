@@ -1,0 +1,22 @@
+.chart_cl {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    background: linear-gradient(#ADD8E6, #9198e5);
+    color: black;
+}
+.step_count_chart {
+    position: absolute;
+    top: 200px;
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 60%;
+    margin-left: 10%;
+    height: 400px;
+}
+
+.extra {
+    left: 1200px; 
+    width: 300px;
+    height: 400px;
+}

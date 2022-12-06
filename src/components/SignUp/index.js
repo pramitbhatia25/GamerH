@@ -8,7 +8,7 @@ const SignUp = () => {
     }, [])
 
     const [user, setUser] = useState({
-        pass: "", email: "", name:"", handle: "", steps: ""
+        pass: "", email: "", name:"", handle: "", steps: "", ocr_steps: ""
     });
 
     let name, value;
@@ -26,6 +26,7 @@ const SignUp = () => {
         let pass = user.pass;
         let handle = "@" + user.handle;
         let steps = 0;        
+        let ocr_steps = 0;        
         console.log(user)
         const response = await fetch('http://localhost:1337/api/createUser', {
             headers: {
@@ -33,7 +34,7 @@ const SignUp = () => {
             },
             method: 'POST',
             body: JSON.stringify({
-                name, handle, steps, email, pass
+                name, handle, steps, email, pass, ocr_steps
             }),
         })
         console.log(response.status)
