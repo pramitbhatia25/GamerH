@@ -9,19 +9,9 @@ import React from 'react';
 
 const DashBoard = () => {
 
-    const [image, setImage] = React.useState();
-
-    const onChange = (imageList, addUpdateIndex) => {
-        // data for submit
-        console.log(imageList, addUpdateIndex);
-        setImage(imageList);
-    };
-
-    
 
     const [showNav, setShowNav] = useState(false);
     const [my_steps, setMySteps] = useState("Loading");
-    const [ocr_steps, setOCRSteps] = useState("");
     const [daily_goal, setDailyGoal] = useState(10000);
     const [user, setUser] = useState({ name: "Loading", handle: "Handle", steps: "Loading", email: "", pass: "", ocr_steps: "" });
     var fitbit_link = "https://www.fitbit.com/oauth2/authorize?client_id=23944D&expires_in=604800&redirect_uri=http%3A%2F%2F127.0.0.1%3A3000%2Fuser%2Fdashboard&response_type=token&scope=activity+heartrate+location+nutrition+profile+settings+sleep+social+weight+oxygen_saturation+respiratory_rate+temperature&state"
@@ -33,9 +23,7 @@ const DashBoard = () => {
 
     async function updateSTEPS() {
         if (localStorage.getItem("email") != null) {
-            console.log("A");
             await getUser();
-            console.log("B");
         }
         else {
             window.alert("Not Logged In!");
@@ -52,9 +40,7 @@ const DashBoard = () => {
             xhr.setRequestHeader("Authorization", 'Bearer ' + access_token);
             xhr.onload = async function () {
                 if (xhr.status === 200) {
-                    console.log("ANSWER" + xhr.responseText)
                     var s = JSON.parse(xhr.responseText)['activities-steps']['0']['value']
-                    console.log("S" + s);
                     await updateDB(s);
                     setMySteps(parseInt(s));
                 }
@@ -79,7 +65,6 @@ const DashBoard = () => {
         console.log(data);
         setUser(data.user)
         setMySteps(data.user.steps)
-        setOCRSteps(data.user.ocr_steps)
         const el = document.querySelector('.steps_amount');
         el.classList.remove("amt");
     }
