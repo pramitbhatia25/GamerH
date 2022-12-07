@@ -2,7 +2,6 @@
   "homepage": "https://pramitbhatia25.github.io/GamerH",
   "name": "home",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@emailjs/browser": "^3.7.0",
     "@fontsource/bungee-shade": "^4.5.9",
