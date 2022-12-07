@@ -16,7 +16,7 @@ function App() {
   <div>
 
     <Routes>
-      <Route path="/GamerH/" element={<Layout />}>
+      <Route path="/GamerH" element={<Layout />}>
         <Route path="" element= {<Home/>} />
         <Route path="home" element= {<Home/>} />
         <Route path="signIn" element= {<SignIn/>} />

@@ -1,12 +1,9 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import ReactTypingEffect from 'react-typing-effect';
 import { Loader } from "react-loaders";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 import "./index.scss";
-import AnimatedLetters from "../AnimatedLetters";
-import {faArrowDown19, faArrowDownLong, faContactCard, faSignIn, faUser} from "@fortawesome/free-solid-svg-icons";
+import {faArrowDownLong, faContactCard, faSignIn, faUser} from "@fortawesome/free-solid-svg-icons";
 
 function Home() {
     const [letterClass, setLetterClass] = useState('text-animate');
@@ -32,9 +29,9 @@ function Home() {
             <div className="typing_2"><i>Gamer-H make exercise more interesting by providing an interactive and competitive environment where you can challenge yourself, achieve your fitness goals, and have fun while doing it!</i></div>
 
             <div className="buttons">
-                <Link to="/signIn" className="flat-button">SignIn <FontAwesomeIcon className="ic" icon={faSignIn} color="white" fontSize={"20px"} /></Link>
-                <Link to="/contact" className="flat-button">Contact <FontAwesomeIcon className="ic" icon={faContactCard} color="white" fontSize={"20px"} /></Link>
-                <Link to="/signUp" className="flat-button">SignUp <FontAwesomeIcon className="ic" icon={faUser} color="white" fontSize={"20px"} /></Link>
+                <Link to="/GamerH/signIn" className="flat-button">SignIn <FontAwesomeIcon className="ic" icon={faSignIn} color="white" fontSize={"20px"} /></Link>
+                <Link to="/GamerH/contact" className="flat-button">Contact <FontAwesomeIcon className="ic" icon={faContactCard} color="white" fontSize={"20px"} /></Link>
+                <Link to="/GamerH/signUp" className="flat-button">SignUp <FontAwesomeIcon className="ic" icon={faUser} color="white" fontSize={"20px"} /></Link>
             </div>
 
         </div>
