@@ -17,16 +17,16 @@ const SideBar = () => {
             <NavLink exact="true" activeclassname="active" to="/home" onClick={() => setShowNav(false)}>
                 <FontAwesomeIcon icon={faHome} color="#fff" />
             </NavLink>
-            <NavLink exact="true" activeclassname="active" className="contact-link" to="/contact" onClick={() => setShowNav(false)}>
+            <NavLink exact="true" activeclassname="active" className="contact-link" to="/GamerH/contact" onClick={() => setShowNav(false)}>
                 <FontAwesomeIcon icon={faEnvelope} color="#fff" />
             </NavLink>
-            <NavLink exact="true" activeclassname="active" className="login-link" to="/signIn" onClick={() => setShowNav(false)}>
+            <NavLink exact="true" activeclassname="active" className="login-link" to="/GamerH/signIn" onClick={() => setShowNav(false)}>
                 <FontAwesomeIcon icon={faSignIn} color="#fff" />
             </NavLink>
-            <NavLink exact="true" activeclassname="active" className="signup-link" to="/signUp" onClick={() => setShowNav(false)}>
+            <NavLink exact="true" activeclassname="active" className="signup-link" to="/GamerH/signUp" onClick={() => setShowNav(false)}>
                 <FontAwesomeIcon icon={faUserPlus} color="#fff" />
             </NavLink>
-            <NavLink exact="true" activeclassname="active" className="leaderboard-link" to="/world/leaderboard" onClick={() => setShowNav(false)}>
+            <NavLink exact="true" activeclassname="active" className="leaderboard-link" to="/GamerH/world/leaderboard" onClick={() => setShowNav(false)}>
                 <FontAwesomeIcon icon={faTrophy} color="#fff" />
             </NavLink>
         </nav>
