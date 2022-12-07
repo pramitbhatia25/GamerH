@@ -16,7 +16,7 @@ function App() {
   <div>
 
     <Routes>
-      <Route path="/GamerH" element={<Layout />}>
+      <Route path="/" element={<Layout />}>
         <Route path="" element= {<Home/>} />
         <Route path="home" element= {<Home/>} />
         <Route path="signIn" element= {<SignIn/>} />
@@ -24,10 +24,10 @@ function App() {
         <Route path="contact" element= {<Contact/>} />
         <Route path="world/leaderboard" element= {<LeaderBoard/>} />
       </Route>
-    <Route path="/GamerH/user/dashboard" element= {<DashBoard/>} />
-    <Route path="/GamerH/user/chat" element= {<Chat/>} />
-    <Route path="/GamerH/user/leaderboard" element= {<UserLeaderBoard/>} />
-    <Route path="/GamerH/user/chart" element= {<ChartD />} />
+    <Route path="/user/dashboard" element= {<DashBoard/>} />
+    <Route path="/user/chat" element= {<Chat/>} />
+    <Route path="/user/leaderboard" element= {<UserLeaderBoard/>} />
+    <Route path="/user/chart" element= {<ChartD />} />
     </Routes>
   </div>
   );

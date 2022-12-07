@@ -34,7 +34,7 @@ const SignIn = () => {
 
     const GoToDash = async (e) => {
         e.preventDefault();
-        window.location.href = "/GamerH/user/dashboard";
+        window.location.href = "/user/dashboard";
     }
 
     const Login = async (e) => {
@@ -54,11 +54,11 @@ const SignIn = () => {
 
         if (res.status === 400 || !data) {
             window.alert("Invalid Credentials!");
-            window.location.href = "/GamerH/signIn"
+            window.location.href = "/signIn"
 
         } else {
             localStorage.setItem("email", email);
-            window.location.href = "/GamerH/user/dashboard"
+            window.location.href = "/user/dashboard"
         }
 
     }

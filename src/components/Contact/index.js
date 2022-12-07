@@ -31,7 +31,7 @@ const Contact = () => {
             .then(
                 () => {
                     alert("Message successfully sent!");
-                    document.location.href = "/GamerH/contact";
+                    document.location.href = "http://127.0.0.1:3000/contact";
                 },
                 () => {
                     alert("Failed to send the message, try again.");

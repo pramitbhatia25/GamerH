@@ -42,11 +42,11 @@ const SignUp = () => {
         console.log("S"+ response.toString());
         window.alert('Account Created!');
         localStorage.setItem("email", email);
-        window.location.href = "/GamerH/user/dashboard"
+        window.location.href = "/user/dashboard"
         }
         else {
         window.alert("Error!" + response.error)
-        window.location.href = '/GamerH/signUp';
+        window.location.href = '/signUp';
         }
     }
 
