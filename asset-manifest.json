@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/GamerH/static/css/main.f6030496.css",
-    "main.js": "/GamerH/static/js/main.4827f5ca.js",
+    "main.js": "/GamerH/static/js/main.2d3cb072.js",
     "static/media/gif.gif": "/GamerH/static/media/gif.d1a338c61e0b940ce0a0.gif",
     "static/media/bungee-shade-all-400-normal.woff": "/GamerH/static/media/bungee-shade-all-400-normal.c8cb6d51b0af060ee117.woff",
     "static/media/bungee-shade-latin-400-normal.woff2": "/GamerH/static/media/bungee-shade-latin-400-normal.1090ee90e74fd8cc979d.woff2",
@@ -13,10 +13,10 @@
     "static/media/CoolveticaRg-Regular.woff2": "/GamerH/static/media/CoolveticaRg-Regular.7d1f3b1dd46ad6557a17.woff2",
     "index.html": "/GamerH/index.html",
     "main.f6030496.css.map": "/GamerH/static/css/main.f6030496.css.map",
-    "main.4827f5ca.js.map": "/GamerH/static/js/main.4827f5ca.js.map"
+    "main.2d3cb072.js.map": "/GamerH/static/js/main.2d3cb072.js.map"
   },
   "entrypoints": [
     "static/css/main.f6030496.css",
-    "static/js/main.4827f5ca.js"
+    "static/js/main.2d3cb072.js"
   ]
 }
