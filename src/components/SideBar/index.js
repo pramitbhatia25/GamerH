@@ -14,7 +14,7 @@ const SideBar = () => {
 
 
         <nav className={showNav ? 'mobile-show' : ''}>
-            <NavLink exact="true" activeclassname="active" to="/home" onClick={() => setShowNav(false)}>
+            <NavLink exact="true" activeclassname="active" to="/GamerH/home" onClick={() => setShowNav(false)}>
                 <FontAwesomeIcon icon={faHome} color="#fff" />
             </NavLink>
             <NavLink exact="true" activeclassname="active" className="contact-link" to="/GamerH/contact" onClick={() => setShowNav(false)}>

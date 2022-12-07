@@ -109,7 +109,7 @@ function Chat() {
         }
         else {
             window.alert("Not Logged In!");
-            window.location.href = "/signIn";
+            window.location.href = "/GamerH/signIn";
         }
     }, [])
 
@@ -134,7 +134,7 @@ function Chat() {
         e.preventDefault();
         localStorage.removeItem('email');
         window.alert('You have been logged out!')
-        window.location.href = "/home";
+        window.location.href = "/GamerH/home";
     }
     return <>
         <Particle />
@@ -174,19 +174,19 @@ function Chat() {
             </div>
 
             <nav className={showNav ? 'mobile-show' : ''}>
-                <NavLink exact="true" activeclassname="active" to="/user/dashboard" onClick={() => setShowNav(false)}>
+                <NavLink exact="true" activeclassname="active" to="/GamerH/user/dashboard" onClick={() => setShowNav(false)}>
                     <FontAwesomeIcon icon={faHome} color="#fff" />
                 </NavLink>
-                <NavLink exact="true" activeclassname="active" className="friends-link" to="/user/chat" onClick={() => setShowNav(false)}>
+                <NavLink exact="true" activeclassname="active" className="friends-link" to="/GamerH/user/chat" onClick={() => setShowNav(false)}>
                     <FontAwesomeIcon icon={faUserFriends} color="#fff" />
                 </NavLink>
-                <NavLink exact="true" activeclassname="active" className="chart-link" to="/user/chart" onClick={() => setShowNav(false)}>
+                <NavLink exact="true" activeclassname="active" className="chart-link" to="/GamerH/user/chart" onClick={() => setShowNav(false)}>
                     <FontAwesomeIcon icon={faChartBar} color="white" />
                 </NavLink>
-                <NavLink exact="true" activeclassname="active" className="signout-link" to="/home" onClick={SignOutUser}>
+                <NavLink exact="true" activeclassname="active" className="signout-link" to="/GamerH/home" onClick={SignOutUser}>
                     <FontAwesomeIcon icon={faSignOut} color="red" />
                 </NavLink>
-                <NavLink exact="true" activeclassname="active" className="leaderboard-link" to="/user/leaderboard" onClick={() => setShowNav(false)}>
+                <NavLink exact="true" activeclassname="active" className="leaderboard-link" to="/GamerH/user/leaderboard" onClick={() => setShowNav(false)}>
                     <FontAwesomeIcon icon={faTrophy} color="#fff" />
                 </NavLink>
             </nav>
